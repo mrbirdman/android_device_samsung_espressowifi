@@ -96,9 +96,6 @@
 	<item>rndis0</item>
     </string-array>
 
-    <string name="config_networkLocationProvider">com.google.android.location.NetworkLocationProvider</string>
+    <bool name="config_showNavigationBar">true</bool>
 
-   <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
-
-    <bool name="config_forceDisableHardwareKeyboard">true</bool>
 </resources>

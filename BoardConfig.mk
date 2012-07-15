@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-USE_CAMERA_STUB := true
-BOARD_USES_GENERIC_AUDIO := false
+# USE_CAMERA_STUB := true
+# BOARD_USES_GENERIC_AUDIO := false
 
 # inherit from the proprietary version
 -include vendor/samsung/espressowifi/BoardConfigVendor.mk
