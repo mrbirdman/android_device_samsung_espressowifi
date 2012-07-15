@@ -140,7 +140,6 @@ for FILE in `cat proprietary-files.txt`; do
     echo "    LOCAL_SRC_FILES := $FILEWOPATH" >> $ANDROIDMK
     echo "    LOCAL_MODULE_TAGS := optional" >> $ANDROIDMK
     if [ $FILEEXT = $FILEWOPATH ]; then
-	echo File is binary
 	echo "    LOCAL_MODULE_CLASS := EXECUTABLES" >> $ANDROIDMK
     else
 	echo "    LOCAL_MODULE_SUFFIX := .$FILEEXT" >> $ANDROIDMK
