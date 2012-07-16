@@ -20,7 +20,7 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 $(call inherit-product-if-exists, vendor/samsung/espressowifi/device-vendor.mk)
 
-# DEVICE_PACKAGE_OVERLAYS += device/samsung/espressowifi/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/espressowifi/overlay
 
 # Prebuilt kernel location
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -88,9 +88,11 @@ PRODUCT_COPY_FILES += \
 # Build characteristics setting
 # PRODUCT_CHARACTERISTICS := tablet
 
-# 7" tablet is "large" at 160dpi (169.x) is mdpi, but it's lying..
-PRODUCT_AAPT_CONFIG := normal mdpi hdpi
-PRODUCT_AAPT_PREF_CONFIG := mdpi
+# inherit from grouper
+PRODUCT_AAPT_CONFIG := normal large tvdpi hdpi
+PRODUCT_AAPT_PREF_CONFIG := tvdpi
+
+include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
 # This device has enough room for precise dalvik
 PRODUCT_TAGS += dalvik.gc.type-precise
