@@ -144,7 +144,7 @@ for FILE in `cat proprietary-files.txt`; do
     else
 	echo "    LOCAL_MODULE_SUFFIX := .$FILEEXT" >> $ANDROIDMK
 	if [ $FILEEXT = so ]; then
-		echo "    LOCAL_MODULE_CLASS := SHARED_LIBRARIES" >> $ANDROIDMK
+		echo "    LOCAL_MODULE_CLASS := SHARED_LIBRARIES1" >> $ANDROIDMK
 	elif [ $FILEEXT = apk ]; then
 		echo "    LOCAL_MODULE_CLASS := APPS" >> $ANDROIDMK
 	elif [ $FILEEXT = bin ]; then
@@ -156,5 +156,6 @@ for FILE in `cat proprietary-files.txt`; do
     echo '    LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/'$FILEPATH >> $ANDROIDMK
     echo '    include $(BUILD_PREBUILT)' >> $ANDROIDMK
     echo "" >> $ANDROIDMK
-
 done
+
+echo "endif" >> $ANDROIDMK
