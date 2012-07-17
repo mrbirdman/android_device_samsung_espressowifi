@@ -86,13 +86,11 @@ PRODUCT_COPY_FILES += \
     $(call add-to-product-copy-files-if-exists,packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml) \
 
 # Build characteristics setting
-# PRODUCT_CHARACTERISTICS := tablet
+PRODUCT_CHARACTERISTICS := tablet
 
 # inherit from grouper
 PRODUCT_AAPT_CONFIG := normal large tvdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := tvdpi
-
-include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
 # This device has enough room for precise dalvik
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -105,16 +103,18 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 # Packages for audio
-#PRODUCT_PACKAGES += \
-#    audio.a2dp.default \
-#    audio.primary.omap4
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    audio.primary.omap4
 
 # Properties specific for this device
-PRODUCT_PROPERTY_OVERRIDES := \
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapstartsize=8m \
+    dalvik.vm.heapgrowthlimit=64m \
+    dalvik.vm.heapsize=384m
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
     ro.opengles.version = 131072 \
-    ro.sf.lcd_density=160 \
     persist.sys.usb.config=mtp,adb
 
 # for bugmailer
@@ -125,8 +125,7 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 		system/extras/bugmailer/send_bug:system/bin/send_bug
 endif
 
-# Inherit tablet dalvik settings
-# include frameworks/native/build/tablet-dalvik-heap.mk
+
 
 # Call the vendor to setup proprietary files
 $(call inherit-product-if-exists, vendor/samsung/espressowifi/device-vendor.mk)

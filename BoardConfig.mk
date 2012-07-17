@@ -16,6 +16,7 @@
 
 USE_CAMERA_STUB := true
 BOARD_USES_GENERIC_AUDIO := false
+BOARD_USES_ICS_AUDIO := true
 
 # inherit from the proprietary version
 -include vendor/samsung/espressowifi/BoardConfigVendor.mk
@@ -43,6 +44,11 @@ BOARD_KERNEL_PAGESIZE := 2048
 # Egl settings
 BOARD_EGL_CFG := device/samsung/espressowifi/configs/egl.cfg
 USE_OPENGL_RENDERER := true
+COMMON_GLOBAL_CFLAGS += -DSURFACEFLINGER_FORCE_SCREEN_RELEASE
+TARGET_BOOTANIMATION_PRELOAD := true
+
+# HWComposer
+BOARD_USES_HWCOMPOSER := true
 
 # Misc display settings
 BOARD_USE_SKIA_LCDTEXT := true
@@ -58,9 +64,8 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE                := bcmdhd
-
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/dhd.ko"
-WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path"
+#WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/dhd.ko"
+WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/wifi/bcmdhd_p2p.bin"
