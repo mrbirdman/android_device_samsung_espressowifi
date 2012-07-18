@@ -41,4 +41,8 @@
 #storage_struct = series, "/mnt/sdcard/extStorages"
 #storage_struct = parallel
 
+# external sdcard
 dev_mount sdcard /mnt/extSdCard auto /devices/platform/omap/omap_hsmmc.0/mmc_host/mmc1
+
+#usb host device 
+dev_mount usbdisk /mnt/usbdisk auto /devices/platform/omap/musb-omap2430/musb-hdrc/usb1

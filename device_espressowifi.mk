@@ -53,7 +53,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/main.conf:system/etc/bluetooth/main.conf \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/nvram_net.txt:system/etc/wifi/nvram_net.txt \
+    $(LOCAL_PATH)/configs/nvram_mfg.txt:system/etc/wifi/nvram_mfg.txt \
     $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     $(LOCAL_PATH)/configs/vold.fstab:system/etc/vold.fstab
 
@@ -109,6 +111,7 @@ PRODUCT_PACKAGES += \
 
 # Properties specific for this device
 PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0
     dalvik.vm.heapstartsize=8m \
     dalvik.vm.heapgrowthlimit=64m \
     dalvik.vm.heapsize=384m
@@ -129,6 +132,9 @@ endif
 
 # Call the vendor to setup proprietary files
 $(call inherit-product-if-exists, vendor/samsung/espressowifi/device-vendor.mk)
+
+#$(call inherit-product, hardware/ti/omap4xxx/omap4.mk)
+#$(call inherit-product-if-exists, vendor/ti/proprietary/omap4/ti-omap4-vendor.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_espressowifi
