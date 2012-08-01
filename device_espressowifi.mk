@@ -48,7 +48,8 @@ PRODUCT_COPY_FILES += \
 # Prebuilt configuration files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/egl.cfg:system/lib/egl/egl.cfg \
-    $(LOCAL_PATH)/configs/espressowifi.xml:system/etc/sound/espressowifi.xml \
+    $(LOCAL_PATH)/configs/espressowifi.xml:system/etc/sound/espressowifi \
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/main.conf:system/etc/bluetooth/main.conf \
