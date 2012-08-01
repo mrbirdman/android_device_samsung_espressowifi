@@ -19,7 +19,6 @@ BOARD_USES_GENERIC_AUDIO := false
 BOARD_USE_SAMSUNG_SEPARATEDSTREAM := true
 BOARD_USES_LIBMEDIA_WITH_AUDIOPARAMETER := true
 
-
 # inherit from the proprietary version
 -include vendor/samsung/espressowifi/BoardConfigVendor.mk
 
